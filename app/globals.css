@@ -1,26 +1,32 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/*
+  Simplified color palette — based on the Stitch export, but trimmed from
+  ~30 tokens down to the ~10 that actually matter, so the design system
+  stays easy to remember and extend as we build more pages.
+*/
+@theme {
+  --color-primary: #0d6438;
+  --color-primary-light: #2f7d4f;
+  --color-secondary: #835400;
+  --color-secondary-light: #fdb244;
+  --color-background: #f7faf4;
+  --color-surface: #ffffff;
+  --color-surface-muted: #ebefe8;
+  --color-text: #181d19;
+  --color-text-muted: #3f4941;
+  --color-border: #e0e4dd;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-heading: var(--font-montserrat);
+  --font-body: var(--font-quicksand);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
 }

@@ -1,0 +1,625 @@
+{
+  "pickup_location": {
+    "name": "KwikMart Pickup \u2014 Ikeja",
+    "address": "14 Allen Avenue, Ikeja, Lagos, Nigeria"
+  },
+  "categories": [
+    "Beverages",
+    "Dairy",
+    "Grains & Staples",
+    "Noodles & Pasta",
+    "Seasoning & Spices",
+    "Canned & Packaged Foods",
+    "Cooking Oil",
+    "Snacks & Confectionery",
+    "Fresh Produce",
+    "Household & Cleaning",
+    "Bakery",
+    "Frozen & Meat/Fish",
+    "Personal Care",
+    "Baby Products"
+  ],
+  "products": [
+    {
+      "name": "Chivita 100% Orange Juice 1L",
+      "category": "Beverages",
+      "price": 2200,
+      "description": "100% pure orange juice, no added sugar, 1 litre tetra pack.",
+      "image_query": "orange juice carton"
+    },
+    {
+      "name": "Five Alive Pulpy Orange 1L",
+      "category": "Beverages",
+      "price": 1900,
+      "image_query": "orange juice bottle"
+    },
+    {
+      "name": "La Casera Sparkling Apple Drink 50cl",
+      "category": "Beverages",
+      "price": 600,
+      "image_query": "sparkling apple drink bottle"
+    },
+    {
+      "name": "Maltina Malt Drink 33cl",
+      "category": "Beverages",
+      "price": 550,
+      "image_query": "malt drink can"
+    },
+    {
+      "name": "Amstel Malta 33cl",
+      "category": "Beverages",
+      "price": 550,
+      "image_query": "malt drink bottle"
+    },
+    {
+      "name": "Bigi Cola 50cl",
+      "category": "Beverages",
+      "price": 450,
+      "image_query": "cola soda bottle"
+    },
+    {
+      "name": "Coca-Cola 50cl",
+      "category": "Beverages",
+      "price": 500,
+      "image_query": "coca cola bottle"
+    },
+    {
+      "name": "Fanta Orange 50cl",
+      "category": "Beverages",
+      "price": 500,
+      "image_query": "orange soda bottle"
+    },
+    {
+      "name": "Eva Premium Table Water 75cl",
+      "category": "Beverages",
+      "price": 250,
+      "image_query": "bottled water"
+    },
+    {
+      "name": "Viju Milk Drink 50cl",
+      "category": "Beverages",
+      "price": 400,
+      "image_query": "milk drink bottle"
+    },
+    {
+      "name": "Chi Exotic Mixed Fruit Juice 1L",
+      "category": "Beverages",
+      "price": 2100,
+      "image_query": "fruit juice carton"
+    },
+    {
+      "name": "Predator Energy Drink 35cl",
+      "category": "Beverages",
+      "price": 500,
+      "image_query": "energy drink can"
+    },
+    {
+      "name": "Peak Full Cream Evaporated Milk 170g Tin",
+      "category": "Dairy",
+      "price": 950,
+      "image_query": "evaporated milk can"
+    },
+    {
+      "name": "Peak Milk Powder Sachet 360g",
+      "category": "Dairy",
+      "price": 3200,
+      "image_query": "powdered milk sachet"
+    },
+    {
+      "name": "Dano Cool Cow Milk Powder 400g",
+      "category": "Dairy",
+      "price": 3400,
+      "image_query": "milk powder tin"
+    },
+    {
+      "name": "Cowbell Milk Powder Sachet 350g",
+      "category": "Dairy",
+      "price": 3100,
+      "image_query": "powdered milk sachet"
+    },
+    {
+      "name": "Hollandia Yoghurt 1L",
+      "category": "Dairy",
+      "price": 2100,
+      "image_query": "yogurt bottle"
+    },
+    {
+      "name": "Three Crowns Milk Powder 400g",
+      "category": "Dairy",
+      "price": 3300,
+      "image_query": "milk powder tin"
+    },
+    {
+      "name": "Peak Cheese Singles 8 Pack",
+      "category": "Dairy",
+      "price": 2400,
+      "image_query": "cheese slices"
+    },
+    {
+      "name": "Nunu Fresh Yoghurt 500ml",
+      "category": "Dairy",
+      "price": 1600,
+      "image_query": "yogurt drink"
+    },
+    {
+      "name": "Mama Gold Rice 5kg",
+      "category": "Grains & Staples",
+      "price": 8500,
+      "image_query": "bag of rice"
+    },
+    {
+      "name": "Royal Stallion Rice 5kg",
+      "category": "Grains & Staples",
+      "price": 8300,
+      "image_query": "bag of rice"
+    },
+    {
+      "name": "Golden Penny Semovita 1kg",
+      "category": "Grains & Staples",
+      "price": 1800,
+      "image_query": "semolina flour bag"
+    },
+    {
+      "name": "Ayoola Foods Semo 2kg",
+      "category": "Grains & Staples",
+      "price": 3200,
+      "image_query": "semolina flour bag"
+    },
+    {
+      "name": "Honeywell Wheat Meal 1kg",
+      "category": "Grains & Staples",
+      "price": 1900,
+      "image_query": "wheat flour bag"
+    },
+    {
+      "name": "Dangote Sugar 1kg",
+      "category": "Grains & Staples",
+      "price": 1500,
+      "image_query": "bag of sugar"
+    },
+    {
+      "name": "Honey Beans (Oloyin) 1 Derica",
+      "category": "Grains & Staples",
+      "price": 1400,
+      "image_query": "brown beans"
+    },
+    {
+      "name": "Ofada Rice 1 Derica",
+      "category": "Grains & Staples",
+      "price": 2200,
+      "image_query": "brown rice"
+    },
+    {
+      "name": "Yellow Garri 1 Derica",
+      "category": "Grains & Staples",
+      "price": 900,
+      "image_query": "cassava garri flour"
+    },
+    {
+      "name": "Indomie Instant Noodles Chicken 70g",
+      "category": "Noodles & Pasta",
+      "price": 250,
+      "image_query": "instant noodles packet"
+    },
+    {
+      "name": "Indomie Instant Noodles Onion Chicken 70g",
+      "category": "Noodles & Pasta",
+      "price": 250,
+      "image_query": "instant noodles packet"
+    },
+    {
+      "name": "Golden Penny Spaghetti 500g",
+      "category": "Noodles & Pasta",
+      "price": 1300,
+      "image_query": "spaghetti pasta"
+    },
+    {
+      "name": "Dangote Pasta 500g",
+      "category": "Noodles & Pasta",
+      "price": 1250,
+      "image_query": "pasta packet"
+    },
+    {
+      "name": "Maggi Star Seasoning Cubes 50 Pack",
+      "category": "Seasoning & Spices",
+      "price": 1600,
+      "image_query": "seasoning cubes"
+    },
+    {
+      "name": "Knorr Chicken Seasoning Cubes 8 Pack",
+      "category": "Seasoning & Spices",
+      "price": 350,
+      "image_query": "seasoning cubes"
+    },
+    {
+      "name": "Royco Beef Seasoning Cubes 8 Pack",
+      "category": "Seasoning & Spices",
+      "price": 320,
+      "image_query": "seasoning cubes"
+    },
+    {
+      "name": "Ground Crayfish 1 Cup",
+      "category": "Seasoning & Spices",
+      "price": 2000,
+      "image_query": "dried crayfish"
+    },
+    {
+      "name": "Dried Ata Rodo (Scotch Bonnet) 1 Cup",
+      "category": "Seasoning & Spices",
+      "price": 900,
+      "image_query": "dried chili pepper"
+    },
+    {
+      "name": "Curry Powder 100g",
+      "category": "Seasoning & Spices",
+      "price": 700,
+      "image_query": "curry powder spice"
+    },
+    {
+      "name": "Thyme Leaves 100g",
+      "category": "Seasoning & Spices",
+      "price": 650,
+      "image_query": "dried thyme spice"
+    },
+    {
+      "name": "Iru (Locust Beans) 1 Cup",
+      "category": "Seasoning & Spices",
+      "price": 800,
+      "image_query": "spice condiment bowl"
+    },
+    {
+      "name": "Ground Dried Pepper (Ata Gbigbe) 1 Cup",
+      "category": "Seasoning & Spices",
+      "price": 1000,
+      "image_query": "ground dried pepper"
+    },
+    {
+      "name": "Titus Sardine in Oil 125g",
+      "category": "Canned & Packaged Foods",
+      "price": 1100,
+      "image_query": "canned sardine"
+    },
+    {
+      "name": "Geisha Mackerel in Tomato Sauce 125g",
+      "category": "Canned & Packaged Foods",
+      "price": 1200,
+      "image_query": "canned mackerel fish"
+    },
+    {
+      "name": "Gino Tomato Mix 400g",
+      "category": "Canned & Packaged Foods",
+      "price": 900,
+      "image_query": "canned tomato"
+    },
+    {
+      "name": "Tasty Tom Tomato Paste 400g",
+      "category": "Canned & Packaged Foods",
+      "price": 850,
+      "image_query": "tomato paste tin"
+    },
+    {
+      "name": "Baked Beans in Tomato Sauce 400g",
+      "category": "Canned & Packaged Foods",
+      "price": 1300,
+      "image_query": "canned baked beans"
+    },
+    {
+      "name": "Corned Beef 340g",
+      "category": "Canned & Packaged Foods",
+      "price": 2800,
+      "image_query": "canned corned beef"
+    },
+    {
+      "name": "Kings Vegetable Oil 1L",
+      "category": "Cooking Oil",
+      "price": 2600,
+      "image_query": "vegetable oil bottle"
+    },
+    {
+      "name": "Devon King's Vegetable Oil 1L",
+      "category": "Cooking Oil",
+      "price": 2650,
+      "image_query": "vegetable oil bottle"
+    },
+    {
+      "name": "Power Oil Groundnut Oil 1L",
+      "category": "Cooking Oil",
+      "price": 2800,
+      "image_query": "cooking oil bottle"
+    },
+    {
+      "name": "Mamador Vegetable Oil 1L",
+      "category": "Cooking Oil",
+      "price": 2700,
+      "image_query": "vegetable oil bottle"
+    },
+    {
+      "name": "Bottled Palm Oil 1L",
+      "category": "Cooking Oil",
+      "price": 2400,
+      "image_query": "palm oil bottle"
+    },
+    {
+      "name": "Gala Sausage Roll",
+      "category": "Snacks & Confectionery",
+      "price": 300,
+      "image_query": "sausage roll pastry"
+    },
+    {
+      "name": "Cabin Biscuits Family Pack",
+      "category": "Snacks & Confectionery",
+      "price": 500,
+      "image_query": "biscuits pack"
+    },
+    {
+      "name": "Digestive Biscuits 200g",
+      "category": "Snacks & Confectionery",
+      "price": 1200,
+      "image_query": "digestive biscuits"
+    },
+    {
+      "name": "Choco Milo Ready-to-Drink 25cl",
+      "category": "Snacks & Confectionery",
+      "price": 400,
+      "image_query": "chocolate milk drink"
+    },
+    {
+      "name": "Bournvita 400g",
+      "category": "Snacks & Confectionery",
+      "price": 3200,
+      "image_query": "chocolate malt drink tin"
+    },
+    {
+      "name": "Plantain Chips 100g",
+      "category": "Snacks & Confectionery",
+      "price": 800,
+      "image_query": "plantain chips"
+    },
+    {
+      "name": "Kilishi (Spiced Dried Beef) 100g",
+      "category": "Snacks & Confectionery",
+      "price": 2500,
+      "image_query": "dried beef jerky"
+    },
+    {
+      "name": "Chin Chin 500g",
+      "category": "Snacks & Confectionery",
+      "price": 1500,
+      "image_query": "fried snack pastry"
+    },
+    {
+      "name": "Fresh Tomatoes (1kg)",
+      "category": "Fresh Produce",
+      "price": 1200,
+      "image_query": "fresh tomatoes"
+    },
+    {
+      "name": "Fresh Onions (1kg)",
+      "category": "Fresh Produce",
+      "price": 1000,
+      "image_query": "fresh onions"
+    },
+    {
+      "name": "Tatashe Bell Peppers (1kg)",
+      "category": "Fresh Produce",
+      "price": 1500,
+      "image_query": "red bell peppers"
+    },
+    {
+      "name": "Yam Tuber (Medium)",
+      "category": "Fresh Produce",
+      "price": 2500,
+      "image_query": "yam tuber"
+    },
+    {
+      "name": "Plantain (Bunch of 4)",
+      "category": "Fresh Produce",
+      "price": 1800,
+      "image_query": "plantain bunch"
+    },
+    {
+      "name": "Sweet Potatoes (1kg)",
+      "category": "Fresh Produce",
+      "price": 1100,
+      "image_query": "sweet potatoes"
+    },
+    {
+      "name": "Fresh Spinach (Efo Shoko) Bunch",
+      "category": "Fresh Produce",
+      "price": 500,
+      "image_query": "fresh spinach leaves"
+    },
+    {
+      "name": "Fresh Okra (1kg)",
+      "category": "Fresh Produce",
+      "price": 900,
+      "image_query": "fresh okra"
+    },
+    {
+      "name": "Ripe Bananas (1kg)",
+      "category": "Fresh Produce",
+      "price": 900,
+      "image_query": "ripe bananas"
+    },
+    {
+      "name": "Watermelon (Whole)",
+      "category": "Fresh Produce",
+      "price": 2000,
+      "image_query": "whole watermelon"
+    },
+    {
+      "name": "Garden Eggs (1kg)",
+      "category": "Fresh Produce",
+      "price": 1300,
+      "image_query": "eggplant garden egg"
+    },
+    {
+      "name": "Omo Washing Powder 900g",
+      "category": "Household & Cleaning",
+      "price": 1900,
+      "image_query": "laundry detergent powder"
+    },
+    {
+      "name": "Ariel Detergent 900g",
+      "category": "Household & Cleaning",
+      "price": 2000,
+      "image_query": "laundry detergent box"
+    },
+    {
+      "name": "Morning Fresh Dishwashing Liquid 450ml",
+      "category": "Household & Cleaning",
+      "price": 1300,
+      "image_query": "dish soap bottle"
+    },
+    {
+      "name": "Harpic Toilet Cleaner 500ml",
+      "category": "Household & Cleaning",
+      "price": 1400,
+      "image_query": "toilet cleaner bottle"
+    },
+    {
+      "name": "Ambipur Air Freshener",
+      "category": "Household & Cleaning",
+      "price": 2200,
+      "image_query": "air freshener spray"
+    },
+    {
+      "name": "Rite Toilet Tissue 4 Pack",
+      "category": "Household & Cleaning",
+      "price": 1100,
+      "image_query": "toilet paper rolls"
+    },
+    {
+      "name": "Mortein Insecticide Spray 600ml",
+      "category": "Household & Cleaning",
+      "price": 3200,
+      "image_query": "insect spray can"
+    },
+    {
+      "name": "Sliced Agege Bread (Family Size)",
+      "category": "Bakery",
+      "price": 1800,
+      "image_query": "sliced bread loaf"
+    },
+    {
+      "name": "Sliced White Bread (Small)",
+      "category": "Bakery",
+      "price": 1200,
+      "image_query": "white bread loaf"
+    },
+    {
+      "name": "Meat Pie (Pack of 2)",
+      "category": "Bakery",
+      "price": 1000,
+      "image_query": "meat pie pastry"
+    },
+    {
+      "name": "Doughnut (Pack of 4)",
+      "category": "Bakery",
+      "price": 900,
+      "image_query": "doughnuts"
+    },
+    {
+      "name": "Buns (Pack of 6)",
+      "category": "Bakery",
+      "price": 800,
+      "image_query": "bread buns"
+    },
+    {
+      "name": "Frozen Whole Chicken (1.2kg)",
+      "category": "Frozen & Meat/Fish",
+      "price": 6500,
+      "image_query": "whole raw chicken"
+    },
+    {
+      "name": "Frozen Turkey Wings (1kg)",
+      "category": "Frozen & Meat/Fish",
+      "price": 7200,
+      "image_query": "raw turkey wings"
+    },
+    {
+      "name": "Fresh Beef (1kg)",
+      "category": "Frozen & Meat/Fish",
+      "price": 6000,
+      "image_query": "raw beef meat"
+    },
+    {
+      "name": "Frozen Titus Fish (1kg)",
+      "category": "Frozen & Meat/Fish",
+      "price": 4500,
+      "image_query": "frozen fish"
+    },
+    {
+      "name": "Fresh Croaker Fish (1kg)",
+      "category": "Frozen & Meat/Fish",
+      "price": 5500,
+      "image_query": "fresh fish"
+    },
+    {
+      "name": "Frozen Shrimps (500g)",
+      "category": "Frozen & Meat/Fish",
+      "price": 4800,
+      "image_query": "shrimp seafood"
+    },
+    {
+      "name": "Dettol Antiseptic Soap",
+      "category": "Personal Care",
+      "price": 700,
+      "image_query": "bar soap"
+    },
+    {
+      "name": "Lux Soft Touch Soap",
+      "category": "Personal Care",
+      "price": 500,
+      "image_query": "bar soap"
+    },
+    {
+      "name": "Close-Up Toothpaste 140g",
+      "category": "Personal Care",
+      "price": 1100,
+      "image_query": "toothpaste tube"
+    },
+    {
+      "name": "Colgate Toothpaste 125g",
+      "category": "Personal Care",
+      "price": 1000,
+      "image_query": "toothpaste tube"
+    },
+    {
+      "name": "Vaseline Petroleum Jelly 250ml",
+      "category": "Personal Care",
+      "price": 1600,
+      "image_query": "petroleum jelly jar"
+    },
+    {
+      "name": "Rexona Roll-On Deodorant 50ml",
+      "category": "Personal Care",
+      "price": 1800,
+      "image_query": "deodorant roll-on"
+    },
+    {
+      "name": "Pampers Baby Dry Diapers (Medium, 30 Pack)",
+      "category": "Baby Products",
+      "price": 6500,
+      "image_query": "baby diapers pack"
+    },
+    {
+      "name": "Cerelac Infant Cereal 400g",
+      "category": "Baby Products",
+      "price": 3600,
+      "image_query": "baby cereal box"
+    },
+    {
+      "name": "Baby Wipes (80 Pack)",
+      "category": "Baby Products",
+      "price": 1800,
+      "image_query": "baby wipes pack"
+    },
+    {
+      "name": "NAN Infant Formula 400g",
+      "category": "Baby Products",
+      "price": 9500,
+      "image_query": "infant formula tin"
+    }
+  ]
+}
