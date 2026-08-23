@@ -14,6 +14,7 @@ import { verifyTransaction } from "@/lib/paystack";
 import Link from "next/link";
 import { CheckCircle2, XCircle } from "lucide-react";
 import ClearCartOnSuccess from "../_components/ClearCartOnSuccess";
+import { sendOrderConfirmationEmail } from "@/lib/email";
 
 export default async function OrderConfirmationPage({ searchParams }) {
   const params = await searchParams;
@@ -88,9 +89,15 @@ export default async function OrderConfirmationPage({ searchParams }) {
     }
   }
 
-  return (
+ try {
+      await sendOrderConfirmationEmail(order);
+    } catch (err) {
+      console.error("Failed to send confirmation email:", err);
+    }
+  
+    return (
     <div className="mx-auto max-w-lg px-4 py-16 text-center">
-      <ClearCartOnSuccess    />
+      <ClearCartOnSuccess />
       <CheckCircle2 size={56} className="mx-auto text-primary" />
       <h1 className="mt-4 font-heading text-2xl font-bold">
         Thank you for your order!
