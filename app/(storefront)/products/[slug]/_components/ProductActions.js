@@ -9,12 +9,12 @@ import {
   ShieldCheck,
   MapPin,
 } from "lucide-react";
-//import { useCart } from "@/context/CartContext"; // Adjust to your cart hook/context path
+import { useCart } from "@/context/Cartcontext";
 
 export default function ProductActions({ product }) {
   const [quantity, setQuantity] = useState(1);
   const [isAdded, setIsAdded] = useState(false);
-//   const { addToCart } = useCart?.() || { addToCart: () => {} };
+  const { addToCart } = useCart();
 
   const isOutOfStock = product.stock_quantity <= 0;
 
@@ -27,12 +27,12 @@ export default function ProductActions({ product }) {
     });
   }
 
-//   function handleAddToCart() {
-//     if (isOutOfStock) return;
-//     addToCart(product, quantity);
-//     setIsAdded(true);
-//     setTimeout(() => setIsAdded(false), 1800);
-//   }
+  function handleAddToCart() {
+    if (isOutOfStock) return;
+    addToCart(product, quantity);
+    setIsAdded(true);
+    setTimeout(() => setIsAdded(false), 1800);
+  }
 
   return (
     <div className="flex flex-col gap-6 pt-4">
@@ -46,7 +46,7 @@ export default function ProductActions({ product }) {
             type="button"
             onClick={() => handleQuantityChange(-1)}
             disabled={quantity <= 1 || isOutOfStock}
-            className="flex h-8 w-8 items-center justify-center rounded-md text-primary transition-colors hover:bg-surface-container disabled:opacity-40"
+            className="flex h-8 w-8 items-center justify-center cursor-pointer rounded-md text-primary transition-colors hover:bg-surface-container disabled:opacity-40"
           >
             <Minus size={18} />
           </button>
@@ -57,7 +57,7 @@ export default function ProductActions({ product }) {
             type="button"
             onClick={() => handleQuantityChange(1)}
             disabled={quantity >= product.stock_quantity || isOutOfStock}
-            className="flex h-8 w-8 items-center justify-center rounded-md text-primary transition-colors hover:bg-surface-container disabled:opacity-40"
+            className="flex h-8 w-8 items-center justify-center cursor-pointer rounded-md text-primary transition-colors hover:bg-surface-container disabled:opacity-40"
           >
             <Plus size={18} />
           </button>
@@ -67,7 +67,7 @@ export default function ProductActions({ product }) {
       {/* Add To Cart Button */}
       <button
         type="button"
-        // onClick={handleAddToCart}
+        onClick={handleAddToCart}
         disabled={isOutOfStock}
         className={`flex w-full items-center justify-center gap-2 rounded-xl py-4 font-bold shadow-md transition-all active:scale-[0.99] ${
           isOutOfStock

@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ChevronRight, Package, ShoppingBag } from "lucide-react";
-import { createClient } from "@/lib/supabase/client";
+import { createClient } from "@/lib/supabase/server";
 import ProductActions from "./_components/ProductActions";
 import ProductCard from "@/app/components/ProductCard";
 
@@ -10,7 +10,7 @@ export const revalidate = 60; // Cache for 60 seconds
 
 export default async function ProductDetailPage({ params }) {
   const { slug } = await params;
-  const supabase = createClient();
+  const supabase = await createClient(); // server client — this is a Server Component
 
   // 1. Fetch current product with category data
   const { data: product, error } = await supabase
@@ -40,7 +40,7 @@ export default async function ProductDetailPage({ params }) {
         </Link>
         <ChevronRight size={14} />
         <Link
-          href={`/categories/${product.categories?.slug}`}
+          href={`/?category=${product.categories?.slug}`}
           className="hover:text-primary transition-colors"
         >
           {product.categories?.name || "Category"}
@@ -70,7 +70,6 @@ export default async function ProductDetailPage({ params }) {
               </div>
             )}
 
-            {/* In-Stock Status Badge */}
             <div className="absolute top-4 left-4 rounded-full bg-surface-container-lowest/90 px-3 py-1 text-xs font-bold text-primary shadow backdrop-blur-sm">
               {product.stock_quantity > 0 ? (
                 <span className="flex items-center gap-1">
@@ -95,7 +94,6 @@ export default async function ProductDetailPage({ params }) {
               </h1>
             </div>
 
-            {/* Price Display */}
             <div className="flex items-baseline gap-2">
               <span className="text-3xl font-extrabold text-primary">
                 ₦{Number(product.price).toLocaleString()}
@@ -104,7 +102,6 @@ export default async function ProductDetailPage({ params }) {
 
             <hr className="border-surface-variant" />
 
-            {/* Description */}
             <div className="flex flex-col gap-2">
               <h2 className="text-sm font-bold text-on-surface">
                 About this item
@@ -116,7 +113,6 @@ export default async function ProductDetailPage({ params }) {
             </div>
           </div>
 
-          {/* Interactive Quantity & Checkout CTA */}
           <ProductActions product={product} />
         </div>
       </div>
