@@ -1,89 +1,96 @@
 "use client";
 
-import { useState } from "react";
+import { useCart } from "@/context/Cartcontext";
 import {
   Plus,
   Minus,
   ShoppingBasket,
-  CheckCircle2,
+  Trash2,
   ShieldCheck,
+  CheckCircle2,
   MapPin,
 } from "lucide-react";
-import { useCart } from "@/context/Cartcontext";
 
 export default function ProductActions({ product }) {
-  const [quantity, setQuantity] = useState(1);
-  const [isAdded, setIsAdded] = useState(false);
-  const { addToCart } = useCart();
+  const { items, addToCart, updateQuantity, removeFromCart } = useCart();
 
+  // The quantity shown here comes DIRECTLY from the cart — not a separate
+  // local counter. This is the single source of truth: if it's not in the
+  // cart, quantityInCart is 0 and we show "Add to Cart". Once it's in the
+  // cart, we show the stepper reflecting the real cart quantity.
+  const cartItem = items.find((item) => item.id === product.id);
+  const quantityInCart = cartItem?.quantity ?? 0;
   const isOutOfStock = product.stock_quantity <= 0;
-
-  function handleQuantityChange(delta) {
-    setQuantity((prev) => {
-      const next = prev + delta;
-      if (next < 1) return 1;
-      if (next > product.stock_quantity) return product.stock_quantity;
-      return next;
-    });
-  }
 
   function handleAddToCart() {
     if (isOutOfStock) return;
-    addToCart(product, quantity);
-    setIsAdded(true);
-    setTimeout(() => setIsAdded(false), 1800);
+    addToCart(product, 1);
+  }
+
+  function handleDecrease() {
+    if (quantityInCart <= 1) {
+      // Going below 1 means "remove it" — there's no such thing as
+      // 0 of an item sitting in the cart.
+      removeFromCart(product.id);
+    } else {
+      updateQuantity(product.id, quantityInCart - 1);
+    }
+  }
+
+  function handleIncrease() {
+    updateQuantity(product.id, quantityInCart + 1);
   }
 
   return (
     <div className="flex flex-col gap-6 pt-4">
-      {/* Quantity Selector */}
-      <div className="flex items-center justify-between rounded-xl bg-surface-container p-3">
-        <span className="text-sm font-semibold text-on-surface-variant">
-          Quantity
-        </span>
-        <div className="flex items-center gap-3 rounded-lg border border-outline-variant bg-surface-container-lowest p-1 shadow-inner">
+      {quantityInCart === 0 ? (
+        // Nothing in cart yet — just the Add to Cart button
+        <button
+          type="button"
+          onClick={handleAddToCart}
+          disabled={isOutOfStock}
+          className={`flex w-full items-center justify-center gap-2 rounded-xl py-4 font-bold shadow-md transition-all active:scale-[0.99] ${
+            isOutOfStock
+              ? "cursor-not-allowed bg-surface-container text-text-muted"
+              : "bg-primary text-on-primary hover:bg-surface-tint"
+          }`}
+        >
+          <ShoppingBasket size={20} />
+          {isOutOfStock ? "Out of Stock" : "Add to Cart"}
+        </button>
+      ) : (
+        // Already in cart — the button "becomes" a quantity stepper
+        <div className="flex flex-col gap-3">
+          <div className="flex items-center justify-between rounded-xl bg-primary p-2">
+            <button
+              type="button"
+              onClick={handleDecrease}
+              className="flex h-10 w-10 items-center justify-center rounded-lg text-white transition hover:bg-white/20"
+            >
+              <Minus size={20} />
+            </button>
+            <span className="font-bold text-white">
+              {quantityInCart} in cart
+            </span>
+            <button
+              type="button"
+              onClick={handleIncrease}
+              disabled={quantityInCart >= product.stock_quantity}
+              className="flex h-10 w-10 items-center justify-center rounded-lg text-white transition hover:bg-white/20 disabled:opacity-40"
+            >
+              <Plus size={20} />
+            </button>
+          </div>
+
           <button
             type="button"
-            onClick={() => handleQuantityChange(-1)}
-            disabled={quantity <= 1 || isOutOfStock}
-            className="flex h-8 w-8 items-center justify-center cursor-pointer rounded-md text-primary transition-colors hover:bg-surface-container disabled:opacity-40"
+            onClick={() => removeFromCart(product.id)}
+            className="flex items-center justify-center gap-1 text-sm font-semibold text-red-600 hover:underline"
           >
-            <Minus size={18} />
-          </button>
-          <span className="min-w-[2.5ch] text-center font-bold text-on-surface">
-            {quantity}
-          </span>
-          <button
-            type="button"
-            onClick={() => handleQuantityChange(1)}
-            disabled={quantity >= product.stock_quantity || isOutOfStock}
-            className="flex h-8 w-8 items-center justify-center cursor-pointer rounded-md text-primary transition-colors hover:bg-surface-container disabled:opacity-40"
-          >
-            <Plus size={18} />
+            <Trash2 size={14} /> Remove from cart
           </button>
         </div>
-      </div>
-
-      {/* Add To Cart Button */}
-      <button
-        type="button"
-        onClick={handleAddToCart}
-        disabled={isOutOfStock}
-        className={`flex w-full items-center justify-center gap-2 rounded-xl py-4 font-bold shadow-md transition-all active:scale-[0.99] ${
-          isOutOfStock
-            ? "cursor-not-allowed bg-surface-container text-text-muted"
-            : isAdded
-              ? "bg-secondary text-white"
-              : "bg-primary text-on-primary hover:bg-surface-tint"
-        }`}
-      >
-        <ShoppingBasket size={20} />
-        {isOutOfStock
-          ? "Out of Stock"
-          : isAdded
-            ? "Added to Cart!"
-            : "Add to Cart"}
-      </button>
+      )}
 
       {/* Honest Store Trust Signals */}
       <div className="flex flex-col gap-2.5 rounded-xl border border-outline-variant/40 bg-surface-container-low p-4 text-xs font-semibold text-on-surface-variant">

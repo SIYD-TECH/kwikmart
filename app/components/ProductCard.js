@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Plus } from "lucide-react";
 
 export default function ProductCard({ product }) {
   return (
@@ -26,15 +25,9 @@ export default function ProductCard({ product }) {
 
       <div className="flex flex-1 flex-col p-3">
         <h3 className="line-clamp-2 text-sm font-semibold">{product.name}</h3>
-
-        <div className="mt-auto flex items-center justify-between pt-3">
-          <span className="font-heading text-lg font-bold text-primary">
-            ₦{Number(product.price).toLocaleString()}
-          </span>
-          <span className="flex items-center justify-center rounded-xl bg-secondary-light/30 p-2 text-secondary transition group-hover:bg-secondary-light group-hover:text-white">
-            <Plus size={18} />
-          </span>
-        </div>
+        <span className="mt-auto pt-3 font-heading text-lg font-bold text-primary">
+          ₦{Number(product.price).toLocaleString()}
+        </span>
       </div>
     </Link>
   );

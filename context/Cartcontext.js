@@ -113,6 +113,7 @@ export function CartProvider({ children }) {
         clearCart,
         itemCount,
         subtotal,
+        isLoaded,
       }}
     >
       {children}

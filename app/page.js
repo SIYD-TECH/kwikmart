@@ -38,7 +38,7 @@ export default async function ShopPage({ searchParams }) {
   // catalog size, and stays independent of the paginated grid below.
   let featuredQuery = supabase
     .from("products")
-    .select("id, name, slug, price, image_url")
+    .select("id, name, slug, price, image_url, stock_quantity")
     .order("price", { ascending: false })
     .limit(1);
 
@@ -51,7 +51,8 @@ export default async function ShopPage({ searchParams }) {
 
   return (
     <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-8 md:flex-row">
-      <aside className="w-full shrink-0 rounded-2xl bg-surface p-4 shadow-sm md:w-64 h-full sticky top-0 ">
+      {/* Category sidebar */}
+      <aside className="w-full shrink-0 rounded-2xl bg-surface p-4 shadow-sm md:w-64">
         <h2 className="mb-3 font-heading text-lg font-bold text-primary">
           Welcome to the Market
         </h2>
