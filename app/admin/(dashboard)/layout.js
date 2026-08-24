@@ -1,6 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
-import { Store, Package, Receipt, LogOut } from "lucide-react";
+import { Store, Package, Receipt } from "lucide-react";
+import { Toaster } from "sonner";
 import LogoutButton from "./_components/LogoutButton";
 
 export default async function AdminLayout({ children }) {
@@ -11,6 +12,11 @@ export default async function AdminLayout({ children }) {
 
   return (
     <div className="flex min-h-screen">
+      {/* One <Toaster /> here is enough for the whole admin section —
+          any page underneath can call toast.success(...) / toast.error(...)
+          from anywhere, and it'll render here automatically. */}
+      <Toaster richColors position="top-right" />
+
       <aside className="hidden w-64 shrink-0 flex-col bg-surface-muted p-4 lg:flex">
         <div className="mb-8 px-2">
           <div className="mb-1 flex items-center gap-2 font-heading text-lg font-bold text-primary">
