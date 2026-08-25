@@ -18,7 +18,7 @@ export default function Navbar() {
           <input
             type="text"
             name="q"
-            placeholder="Try 'something quick for a kid\'s lunchbox"
+            placeholder="Search"
             className="w-full bg-transparent text-sm outline-none placeholder:text-text-muted"
           />
         </form>

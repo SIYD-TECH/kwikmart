@@ -38,61 +38,70 @@ export default function CartPage() {
           {items.map((item) => (
             <div
               key={item.id}
-              className="flex flex-col items-center gap-4 rounded-2xl border border-border bg-surface p-4 shadow-sm sm:flex-row"
+              className="flex items-center gap-3 rounded-2xl border border-border bg-surface p-2.5 sm:p-4 shadow-sm"
             >
-              <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl bg-surface-muted">
+              {/* Compact Image */}
+              <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg bg-surface-muted sm:h-20 sm:w-20 sm:rounded-xl">
                 {item.image_url ? (
                   <Image
                     src={item.image_url}
                     alt={item.name}
                     fill
-                    sizes="80px"
+                    sizes="(max-width: 640px) 56px, 80px"
                     className="object-contain p-1"
                   />
                 ) : (
-                  <div className="flex h-full items-center justify-center text-xs text-text-muted">
+                  <div className="flex h-full items-center justify-center text-[10px] text-text-muted">
                     No image
                   </div>
                 )}
               </div>
 
-              <div className="flex-1">
+              {/* Product Info */}
+              <div className="min-w-0 flex-1">
                 <Link
                   href={`/products/${item.slug}`}
-                  className="font-semibold hover:underline"
+                  className="block truncate text-xs font-semibold hover:underline sm:text-sm"
                 >
                   {item.name}
                 </Link>
-                <p className="mt-1 font-heading font-bold text-primary">
+                <p className="mt-0.5 font-heading text-xs font-bold text-primary sm:text-sm">
                   ₦{Number(item.price).toLocaleString()}
                 </p>
               </div>
 
-              <div className="flex flex-col items-center gap-2 sm:items-end">
+              {/* Inline Controls (Quantity & Trash) */}
+              <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
                 <div className="flex items-center overflow-hidden rounded-full bg-surface-muted">
                   <button
                     onClick={() => updateQuantity(item.id, item.quantity - 1)}
                     disabled={item.quantity <= 1}
-                    className="p-2 text-primary transition hover:bg-border disabled:opacity-40"
+                    className="p-1 sm:p-2 text-primary transition hover:bg-border disabled:opacity-40"
+                    aria-label="Decrease quantity"
                   >
-                    <Minus size={16} />
+                    <Minus size={14} className="sm:h-4 sm:w-4" />
                   </button>
-                  <span className="w-8 text-center text-sm font-semibold">
+                  <span className="w-5 text-center text-xs font-semibold sm:w-8 sm:text-sm">
                     {item.quantity}
                   </span>
                   <button
                     onClick={() => updateQuantity(item.id, item.quantity + 1)}
                     disabled={item.quantity >= item.stock_quantity}
-                    className="p-2 text-primary transition hover:bg-border disabled:opacity-40"
+                    className="p-1 sm:p-2 text-primary transition hover:bg-border disabled:opacity-40"
+                    aria-label="Increase quantity"
                   >
-                    <Plus size={16} />
+                    <Plus size={14} className="sm:h-4 sm:w-4" />
                   </button>
                 </div>
+
+                {/* Remove Action: Icon-only on mobile, text on desktop */}
                 <button
                   onClick={() => removeFromCart(item.id)}
-                  className="flex items-center gap-1 text-xs font-semibold text-red-600 hover:underline"
+                  className="p-1.5 text-red-600 transition hover:bg-red-50 hover:rounded-lg sm:p-0 sm:hover:underline sm:flex sm:items-center sm:gap-1 text-xs font-semibold"
+                  aria-label="Remove item"
                 >
-                  <Trash2 size={14} /> Remove
+                  <Trash2 size={15} />
+                  <span className="hidden sm:inline">Remove</span>
                 </button>
               </div>
             </div>
