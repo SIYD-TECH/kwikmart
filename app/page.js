@@ -52,14 +52,14 @@ export default async function ShopPage({ searchParams }) {
   return (
     <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-8 md:flex-row">
       {/* Category sidebar */}
-      <aside className="w-full shrink-0 rounded-2xl bg-surface p-4 shadow-sm md:w-64">
-        <h2 className="mb-3 font-heading text-lg font-bold text-primary">
+      <aside className="w-full shrink-0 self-start rounded-2xl bg-surface p-4 shadow-sm md:w-64 md:sticky md:top-24 h-fit">
+        {/* <h2 className="mb-3 font-heading text-lg font-bold text-primary">
           Welcome to the Market
-        </h2>
-        <nav className="flex flex-col gap-1">
+        </h2> */}
+        <nav className="flex flex-col gap-[1px]">
           <Link
             href="/"
-            className={`flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-semibold transition ${
+            className={`flex items-center gap-3 rounded-xl px-3 py-1 text-sm font-semibold transition ${
               !activeCategorySlug
                 ? "bg-secondary-light/30 text-secondary"
                 : "text-text-muted hover:bg-surface-muted"
