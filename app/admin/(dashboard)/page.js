@@ -1,7 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
-import OrderActions from "./_components/OrderActions";
 import { getNextStatus } from "@/lib/orderStatus";
+import OrderActions from "./orders/_components/OrderActions";
 
 const PAGE_SIZE = 15;
 

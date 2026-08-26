@@ -1,22 +1,29 @@
 "use client";
 
-// One form, two jobs: if `initialData` is given, it's pre-filled for
-// editing; if not, it's a blank "add new product" form. The `action` prop
-// is the actual Server Action to call on submit — passed in by whichever
-// page renders this (new/page.js passes createProduct, edit/page.js
-// passes updateProduct already bound to a specific product's id).
-
 import { useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
-import { Save } from "lucide-react";
+import { Save, Sparkles, Loader2 } from "lucide-react";
+import { generateProductDescription } from "../aiActions";
 
 export default function ProductForm({ categories, initialData, action }) {
   const [isPending, startTransition] = useTransition();
+  const [isGenerating, setIsGenerating] = useState(false);
   const [errors, setErrors] = useState({});
   const router = useRouter();
   const isEditing = Boolean(initialData);
+
+  // These three now need to be "controlled" (tracked in React state)
+  // instead of just defaultValue — the Generate button needs to READ the
+  // current name/category to build a good prompt, and WRITE the result
+  // back into the description field. Price/stock/image stay simple
+  // uncontrolled fields since nothing else needs to read their live value.
+  const [name, setName] = useState(initialData?.name || "");
+  const [categoryId, setCategoryId] = useState(initialData?.category_id || "");
+  const [description, setDescription] = useState(
+    initialData?.description || "",
+  );
 
   function handleSubmit(formData) {
     startTransition(async () => {
@@ -32,6 +39,26 @@ export default function ProductForm({ categories, initialData, action }) {
     });
   }
 
+  async function handleGenerateDescription() {
+    if (!name.trim()) {
+      toast.error("Enter a product name first");
+      return;
+    }
+
+    setIsGenerating(true);
+    const categoryName = categories.find((c) => c.id === categoryId)?.name;
+    const result = await generateProductDescription(name, categoryName);
+    setIsGenerating(false);
+
+    if (result.error) {
+      toast.error(result.error);
+      return;
+    }
+
+    setDescription(result.description);
+    toast.success("Description generated");
+  }
+
   return (
     <form action={handleSubmit} className="flex flex-col gap-4">
       {errors.form && (
@@ -45,7 +72,8 @@ export default function ProductForm({ categories, initialData, action }) {
         <input
           type="text"
           name="name"
-          defaultValue={initialData?.name}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           className="w-full rounded-xl border border-border bg-surface px-4 py-2 outline-none focus:border-primary"
         />
         {errors.name && (
@@ -57,7 +85,8 @@ export default function ProductForm({ categories, initialData, action }) {
         <label className="mb-1 block text-sm font-semibold">Category</label>
         <select
           name="category_id"
-          defaultValue={initialData?.category_id || ""}
+          value={categoryId}
+          onChange={(e) => setCategoryId(e.target.value)}
           className="w-full rounded-xl border border-border bg-surface px-4 py-2 outline-none focus:border-primary"
         >
           <option value="" disabled>
@@ -116,14 +145,33 @@ export default function ProductForm({ categories, initialData, action }) {
       </div>
 
       <div>
-        <label className="mb-1 block text-sm font-semibold">
-          Description{" "}
-          <span className="font-normal text-text-muted">(optional)</span>
-        </label>
+        <div className="mb-1 flex items-center justify-between">
+          <label className="block text-sm font-semibold">
+            Description{" "}
+            <span className="font-normal text-text-muted">(optional)</span>
+          </label>
+          <button
+            type="button"
+            onClick={handleGenerateDescription}
+            disabled={isGenerating}
+            className="flex items-center gap-1 text-xs font-semibold text-primary hover:underline disabled:opacity-50"
+          >
+            {isGenerating ? (
+              <>
+                <Loader2 size={14} className="animate-spin" /> Generating...
+              </>
+            ) : (
+              <>
+                <Sparkles size={14} /> Generate with AI
+              </>
+            )}
+          </button>
+        </div>
         <textarea
           name="description"
           rows={4}
-          defaultValue={initialData?.description}
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
           className="w-full rounded-xl border border-border bg-surface px-4 py-2 outline-none focus:border-primary"
         />
       </div>
