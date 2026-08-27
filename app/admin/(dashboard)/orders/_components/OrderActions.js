@@ -4,13 +4,7 @@ import { useTransition } from "react";
 import { toast } from "sonner";
 import { ArrowRight, XCircle } from "lucide-react";
 import { advanceOrderStatus, cancelOrder } from "../action";
-
-const STATUS_LABELS = {
-  paid: "Paid",
-  preparing: "Preparing",
-  ready_for_pickup: "Ready for Pickup",
-  picked_up: "Picked Up",
-};
+import { STATUS_LABELS } from "@/lib/orderStatus";
 
 // nextStatus is still passed in — but only to LABEL the button correctly
 // ("Mark as Preparing"). The actual status change is decided server-side,

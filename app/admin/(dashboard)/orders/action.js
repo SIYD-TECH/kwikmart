@@ -1,8 +1,9 @@
 "use server";
 
-import { getNextStatus } from "@/lib/orderStatus";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { sendOrderStatusUpdateEmail } from "@/lib/email";
 import { revalidatePath } from "next/cache";
+import { getNextStatus, STATUS_LABELS } from "@/lib/orderStatus";
 
 // Notice this takes ONLY orderId now — no status argument from the
 // client. Instead of trusting whatever the browser says the next status
@@ -14,9 +15,11 @@ import { revalidatePath } from "next/cache";
 export async function advanceOrderStatus(orderId) {
   const supabase = createAdminClient();
 
+  // Need more than just current_status now — order_number and customer
+  // info are required to actually send the update email below.
   const { data: order, error: fetchError } = await supabase
     .from("orders")
-    .select("current_status")
+    .select("current_status, order_number, customer_name, customer_email")
     .eq("id", orderId)
     .single();
 
@@ -37,11 +40,28 @@ export async function advanceOrderStatus(orderId) {
   if (error) throw new Error("Failed to update order status: " + error.message);
 
   revalidatePath("/admin/orders");
+
+  // Email failure must never break the actual status update — the admin's
+  // action already succeeded by this point regardless of what happens next.
+  try {
+    await sendOrderStatusUpdateEmail(order, STATUS_LABELS[nextStatus]);
+  } catch (err) {
+    console.error("Failed to send status update email:", err);
+  }
+
   return { newStatus: nextStatus };
 }
 
 export async function cancelOrder(orderId) {
   const supabase = createAdminClient();
+
+  const { data: order, error: fetchError } = await supabase
+    .from("orders")
+    .select("order_number, customer_name, customer_email")
+    .eq("id", orderId)
+    .single();
+
+  if (fetchError || !order) throw new Error("Order not found");
 
   const { error } = await supabase.from("order_status_history").insert({
     order_id: orderId,
@@ -51,4 +71,10 @@ export async function cancelOrder(orderId) {
   if (error) throw new Error("Failed to cancel order: " + error.message);
 
   revalidatePath("/admin/orders");
+
+  try {
+    await sendOrderStatusUpdateEmail(order, STATUS_LABELS.cancelled);
+  } catch (err) {
+    console.error("Failed to send cancellation email:", err);
+  }
 }

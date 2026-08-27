@@ -1,11 +1,12 @@
 import Link from 'next/link'
 import { Search } from 'lucide-react'
+import MobileNavMenu from './MobileNavMenu'
 import CartLink from './cart-components/CartLink'
 
 export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
-      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between gap-6 px-4">
+      <div className="relative mx-auto flex h-20 max-w-6xl items-center justify-between gap-6 px-4">
         <Link href="/" className="font-heading text-2xl font-bold text-primary">
           KwikMart
         </Link>
@@ -24,16 +25,16 @@ export default function Navbar() {
         </form>
 
         <nav className="hidden items-center gap-6 text-sm font-semibold md:flex">
-          <Link href="/" className="text-primary">Shop</Link>
+          <Link href="/shop" className="text-primary">Shop</Link>
           <Link href="/track" className="text-text-muted hover:text-primary">
             Track Order
           </Link>
         </nav>
 
-        {/* CartLink is a Client Component (needs live cart data) — Navbar
-            itself doesn't need to be one just because it renders CartLink
-            inside it. A server file can still render a client component. */}
-        <CartLink />
+        <div className="flex items-center gap-2">
+          <CartLink />
+          <MobileNavMenu />
+        </div>
       </div>
     </header>
   )

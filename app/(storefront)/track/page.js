@@ -121,7 +121,7 @@ async function OrderResult({ orderNumber }) {
       </div>
 
       {/* Stepper */}
-      <div className="rounded-2xl border border-border bg-surface p-6">
+      <div className="rounded-2xl border border-border bg-surface p-4">
         <div className="relative flex justify-between">
           {/* One continuous line behind all the circles... */}
           <div className="absolute left-5 right-5 top-5 h-0.5 bg-border" />

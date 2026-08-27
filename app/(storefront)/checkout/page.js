@@ -46,6 +46,7 @@ export default function CheckoutPage() {
     const newErrors = {};
     if (!form.firstName.trim()) newErrors.firstName = "First name is required";
     if (!form.lastName.trim()) newErrors.lastName = "Last name is required";
+    if (!form.email.trim()) newErrors.email = "Email is required";
     if (!form.phone.trim()) {
       newErrors.phone = "Phone number is required";
     } else if (!/^[0-9+ ]{7,15}$/.test(form.phone.trim())) {
@@ -154,10 +155,7 @@ export default function CheckoutPage() {
               </div>
               <div className="sm:col-span-2">
                 <label className="mb-1 block text-sm font-semibold">
-                  Email{" "}
-                  <span className="font-normal text-text-muted">
-                    (optional)
-                  </span>
+                  Email
                 </label>
                 <input
                   type="email"
@@ -196,12 +194,12 @@ export default function CheckoutPage() {
             <div className="flex items-start gap-2 rounded-xl bg-surface-muted p-4 text-sm">
               <MapPin size={18} className="mt-0.5 shrink-0 text-primary" />
               <div>
-                <p className="font-semibold">KwikMart Pickup — Ikeja</p>
+                <p className="font-semibold">KwikMart Pickup Ikeja</p>
                 <p className="text-text-muted">
-                  14 Allen Avenue, Ikeja, Lagos, Nigeria
+                  Allen Avenue, Ikeja, Lagos, Nigeria
                 </p>
                 <p className="mt-1 text-text-muted">
-                  Free — ready shortly after payment
+                  Free,ready shortly after payment
                 </p>
               </div>
             </div>
