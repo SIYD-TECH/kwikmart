@@ -15,8 +15,8 @@
 
 import { useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
-import { Loader2 } from "lucide-react";
 import ProductCard from "@/app/components/ProductCard";
+import { Loader2 } from "lucide-react";
 
 const PAGE_SIZE = 12;
 
@@ -31,7 +31,7 @@ export default function ProductGrid({ categoryId, excludeId }) {
     const supabase = createClient();
     let query = supabase
       .from("products")
-      .select("id, name, slug, price, image_url, category_id")
+      .select("id, name, slug, price, image_url, category_id, stock_quantity")
       .order("name")
       .range(pageOffset, pageOffset + PAGE_SIZE - 1);
 
