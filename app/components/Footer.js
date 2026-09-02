@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { MapPin, ShoppingBasket, Receipt, LayoutGrid } from "lucide-react";
+import Image from "next/image";
 
 // Async because it fetches a few real categories to link to — same
 // principle as the rest of the site: every link here goes somewhere
@@ -19,13 +20,21 @@ export default async function Footer() {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
-            <p className="font-heading text-lg font-bold text-primary">
-              KwikMart
-            </p>
+            <div className="flex gap-2">
+              <Image
+                src="/icon.png"
+                alt="KwikMart logo"
+                width={30}
+                height={24}
+              />
+              <p className="font-heading text-lg font-bold text-primary">
+                KwikMart
+              </p>
+            </div>
+
             <p className="mt-2 text-sm text-text-muted">
-              Community-focused, locally sourced groceries  Lagos, Nigeria.
+              Community-focused, locally sourced groceries Lagos, Nigeria.
             </p>
-            
           </div>
 
           {/* Quick links — all real, existing pages */}
@@ -91,17 +100,17 @@ export default async function Footer() {
           {/* About this project — honest, not a real business */}
           <div>
             <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-text-muted">
-              About 
+              About
             </p>
             <p className="text-sm text-text-muted">
-              KwikMart is a demo e-commerce build real checkout,
-              real admin tools, no real business behind it.
+              KwikMart is a demo e-commerce build real checkout, real admin
+              tools, no real business behind it.
             </p>
           </div>
         </div>
 
         <div className="mt-10 border-t border-border pt-6 text-center text-xs text-text-muted">
-          © {new Date().getFullYear()} KwikMart 
+          © {new Date().getFullYear()} KwikMart
         </div>
       </div>
     </footer>
