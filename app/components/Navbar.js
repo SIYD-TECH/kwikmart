@@ -27,7 +27,7 @@ export default function Navbar() {
         </form>
 
         <nav className="hidden items-center gap-6 text-sm font-semibold md:flex">
-          <Link href="/shop" className="text-primary">
+          <Link href="/" className="text-primary">
             Shop
           </Link>
           <Link href="/track" className="text-text-muted hover:text-primary">
